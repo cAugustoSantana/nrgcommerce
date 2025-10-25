@@ -1,10 +1,16 @@
+[providers]
+node = "20"
+
 [phases.setup]
 nixPkgs = ["nodejs_20", "yarn"]
 
 [phases.install]
 cmds = [
     "cd nrgcommerce",
-    "yarn install --frozen-lockfile --silent --ignore-engines"
+    "yarn config set enableTelemetry false",
+    "yarn config set enableGlobalCache false",
+    "yarn config set logFilters '[{\"code\":\"YN0061\",\"level\":\"discard\"},{\"code\":\"YN0032\",\"level\":\"discard\"}]'",
+    "yarn install --frozen-lockfile --silent --ignore-engines --non-interactive --network-timeout 300000"
 ]
 
 [phases.build]
@@ -15,3 +21,9 @@ cmds = [
 
 [start]
 cmd = "cd nrgcommerce && yarn start"
+
+[variables]
+NODE_ENV = "production"
+YARN_ENABLE_TELEMETRY = "0"
+YARN_ENABLE_GLOBAL_CACHE = "false"
+NIXPACKS_NO_CACHE = "1"
