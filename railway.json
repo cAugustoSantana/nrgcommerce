@@ -1,0 +1,9 @@
+{
+    "build": {
+        "builder": "NIXPACKS"
+    },
+    "deploy": {
+        "startCommand": "cd nrgcommerce && npm start",
+        "buildCommand": "cd nrgcommerce && npm run build"
+    }
+}
