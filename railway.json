@@ -1,10 +1,9 @@
 {
     "build": {
-        "builder": "NIXPACKS",
-        "buildCommand": "cd nrgcommerce && yarn build:railway"
+        "builder": "DOCKERFILE"
     },
     "deploy": {
-        "startCommand": "cd nrgcommerce && yarn start",
+        "startCommand": "yarn start",
         "healthcheckPath": "/health",
         "healthcheckTimeout": 100,
         "restartPolicyType": "ON_FAILURE",
