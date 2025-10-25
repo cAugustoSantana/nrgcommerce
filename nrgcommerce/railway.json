@@ -1,0 +1,13 @@
+{
+    "build": {
+        "builder": "NIXPACKS",
+        "buildCommand": "cd nrgcommerce && yarn build:railway"
+    },
+    "deploy": {
+        "startCommand": "cd nrgcommerce && yarn start",
+        "healthcheckPath": "/health",
+        "healthcheckTimeout": 100,
+        "restartPolicyType": "ON_FAILURE",
+        "restartPolicyMaxRetries": 10
+    }
+}
