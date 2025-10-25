@@ -1,0 +1,17 @@
+[phases.setup]
+nixPkgs = ["nodejs_20", "yarn"]
+
+[phases.install]
+cmds = [
+    "cd nrgcommerce",
+    "yarn install --frozen-lockfile --silent --ignore-engines"
+]
+
+[phases.build]
+cmds = [
+    "cd nrgcommerce", 
+    "yarn build"
+]
+
+[start]
+cmd = "cd nrgcommerce && yarn start"
